@@ -1,0 +1,6 @@
+.config
+.ionide
+bin/Debug
+node_modules
+obj/Debug
+*.fs.js

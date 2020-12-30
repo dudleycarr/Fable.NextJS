@@ -1,0 +1,14 @@
+{
+  "name": "fable-nextjs",
+  "version": "1.0.0",
+  "description": "Fable bindings for next.js functins and components",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "Dudley Carr",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
