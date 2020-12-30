@@ -2,5 +2,5 @@
 .ionide
 bin/Debug
 node_modules
-obj/Debug
+obj
 *.fs.js

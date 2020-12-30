@@ -1,8 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <Description>Fable bindings for NextJS React components and functions</Description>
+    <RepositoryUrl>https://github.com/dudleycarr/Fable.NextJS.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/dudleycarr/Fable.NextJS</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/dudleycarr/Fable.NextJS/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>fsharp;fable;react;nextjs</PackageTags>
+    <Authors>Dudley Carr</Authors>
+    <Version>0.5.0</Version>
     <TargetFramework>net5.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NpmDependencies>
+      <NpmPackage Name="react" Version="&gt;= 17.0.1 &lt; 18.0.0" ResolutionStrategy="Max" />
+      <NpmPackage Name="react-dom" Version="&gt;= 17.0.1 &lt; 18.0.0" ResolutionStrategy="Max" />
+    </NpmDependencies>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="*.fsproj; *.fs; *.js;" PackagePath="fable\" />
     <Compile Include="./src/Next.fs" />
   </ItemGroup>
   <ItemGroup>
