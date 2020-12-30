@@ -1,4 +1,4 @@
-module rec NextJS
+namespace rec NextJS
 
 open System
 open Fable.Core
@@ -53,19 +53,20 @@ type INextHeadProperty =
     interface
     end
 
-let inline mkNextLinkAttr (key: string) (value: obj): INextLinkProperty = unbox (key, value)
-let inline mkNextImageAttr (key: string) (value: obj): INextImageProperty = unbox (key, value)
-let inline mkNextHeadAttr (key: string) (value: obj): INextHeadProperty = unbox (key, value)
+module Attr =
+    let inline mkNextLinkAttr (key: string) (value: obj): INextLinkProperty = unbox (key, value)
+    let inline mkNextImageAttr (key: string) (value: obj): INextImageProperty = unbox (key, value)
+    let inline mkNextHeadAttr (key: string) (value: obj): INextHeadProperty = unbox (key, value)
 
 [<Erase>]
 type Link =
-    static member inline href(value: obj) = mkNextLinkAttr "href" value
-    static member inline asPath(value: string) = mkNextLinkAttr "as" value
-    static member inline passHref(value: bool) = mkNextLinkAttr "passHref" value
-    static member inline prefetch(value: bool) = mkNextLinkAttr "prefetch" value
-    static member inline replace(value: bool) = mkNextLinkAttr "replace" value
-    static member inline scroll(value: bool) = mkNextLinkAttr "scroll" value
-    static member inline shallow(value: bool) = mkNextLinkAttr "shallow" value
+    static member inline href(value: obj) = Attr.mkNextLinkAttr "href" value
+    static member inline asPath(value: string) = Attr.mkNextLinkAttr "as" value
+    static member inline passHref(value: bool) = Attr.mkNextLinkAttr "passHref" value
+    static member inline prefetch(value: bool) = Attr.mkNextLinkAttr "prefetch" value
+    static member inline replace(value: bool) = Attr.mkNextLinkAttr "replace" value
+    static member inline scroll(value: bool) = Attr.mkNextLinkAttr "scroll" value
+    static member inline shallow(value: bool) = Attr.mkNextLinkAttr "shallow" value
 
     static member inline text(value: string): INextLinkProperty = unbox (prop.text value)
     static member inline child(value: Fable.React.ReactElement): INextLinkProperty = unbox (prop.children value)
@@ -80,18 +81,18 @@ type ImageLayouts =
 
 [<Erase>]
 type Image =
-    static member inline src(value: obj) = mkNextImageAttr "src" value
-    static member inline width(value: int) = mkNextImageAttr "width" value
-    static member inline height(value: int) = mkNextImageAttr "height" value
-    static member inline layout(value: ImageLayouts) = mkNextImageAttr "layout" value
-    static member inline sizes(value: string) = mkNextImageAttr "sizes" value
-    static member inline quality(value: int) = mkNextImageAttr "quality" value
-    static member inline priority(value: bool) = mkNextImageAttr "priority" value
+    static member inline src(value: obj) = Attr.mkNextImageAttr "src" value
+    static member inline width(value: int) = Attr.mkNextImageAttr "width" value
+    static member inline height(value: int) = Attr.mkNextImageAttr "height" value
+    static member inline layout(value: ImageLayouts) = Attr.mkNextImageAttr "layout" value
+    static member inline sizes(value: string) = Attr.mkNextImageAttr "sizes" value
+    static member inline quality(value: int) = Attr.mkNextImageAttr "quality" value
+    static member inline priority(value: bool) = Attr.mkNextImageAttr "priority" value
 
 [<Erase>]
 type Head =
     static member inline children(elements: ReactElement list) =
-        mkNextHeadAttr "children" (prop.children elements)
+        Attr.mkNextHeadAttr "children" (prop.children elements)
 
 type RouteOptions = { shallow: bool }
 

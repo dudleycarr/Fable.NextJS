@@ -6,7 +6,7 @@
     <PackageLicenseUrl>https://github.com/dudleycarr/Fable.NextJS/blob/master/LICENSE</PackageLicenseUrl>
     <PackageTags>fsharp;fable;react;nextjs</PackageTags>
     <Authors>Dudley Carr</Authors>
-    <Version>0.5.0</Version>
+    <Version>0.5.3</Version>
     <TargetFramework>net5.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
@@ -18,7 +18,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="*.fsproj; *.fs; *.js;" PackagePath="fable\" />
-    <Compile Include="./src/Next.fs" />
+    <Compile Include="./Next.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Core" Version="3.2.2" />
